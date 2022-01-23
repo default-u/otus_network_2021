@@ -36,9 +36,9 @@ feature vn-segment-vlan-based
 feature nv overlay  
 
 vlan 20,101  
-vlan 20  
+vlan 20  <br />
   vn-segment 10020  
-vlan 101  
+vlan 101  <br />
   vn-segment 1111  
 
 vrf context VXLAN  
