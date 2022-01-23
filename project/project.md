@@ -51,43 +51,43 @@ vrf context VXLAN
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;route-target both auto evpn  
 
 interface Vlan20  
-  no shutdown  
-  vrf member VXLAN  
-  ip address 192.168.1.**N**/24  
-  fabric forwarding mode anycast-gateway  
+&nbsp;&nbsp;&nbsp;&nbsp;no shutdown  
+&nbsp;&nbsp;&nbsp;&nbsp;vrf member VXLAN  
+&nbsp;&nbsp;&nbsp;&nbsp;ip address 192.168.1.**N**/24  
+&nbsp;&nbsp;&nbsp;&nbsp;fabric forwarding mode anycast-gateway  
 
 interface Vlan101  
-  no shutdown  
-  vrf member VXLAN  
-  ip forward  
+&nbsp;&nbsp;&nbsp;&nbsp;no shutdown  
+&nbsp;&nbsp;&nbsp;&nbsp;vrf member VXLAN  
+&nbsp;&nbsp;&nbsp;&nbsp;ip forward  
 
 interface nve1  
-  no shutdown  
-  host-reachability protocol bgp  
-  source-interface loopback0  
-  member vni 1111 associate-vrf  
-  member vni 10020  
-    ingress-replication protocol bgp  
+&nbsp;&nbsp;&nbsp;&nbsp;no shutdown  
+&nbsp;&nbsp;&nbsp;&nbsp;host-reachability protocol bgp  
+&nbsp;&nbsp;&nbsp;&nbsp;source-interface loopback0  
+&nbsp;&nbsp;&nbsp;&nbsp;member vni 1111 associate-vrf  
+&nbsp;&nbsp;&nbsp;&nbsp;member vni 10020  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ingress-replication protocol bgp  
 
 router bgp 6501N  
-  address-family ipv4 unicast  
-    network 10.0.**N.N**/32  
+&nbsp;&nbsp;&nbsp;&nbsp;address-family ipv4 unicast  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;network 10.0.**N.N**/32  
 template peer VXLAN_PEER  
-    update-source loopback0  
-    ebgp-multihop 5  
-    address-family l2vpn evpn  
-      send-community  
-      send-community extended  
-      rewrite-evpn-rt-asn  
- neighbor 10.0.**N.N**  
-    inherit peer VXLAN_PEER  
-    remote-as 6501**N**  
-  neighbor 10.0.**N.N**  
-    inherit peer VXLAN_PEER  
-    remote-as 6501**N**  
-  neighbor 10.0.**N.N**  
-    inherit peer VXLAN_PEER  
-    remote-as 6501**N**  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;update-source loopback0  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ebgp-multihop 5  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;address-family l2vpn evpn  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;send-community  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;send-community extended  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rewrite-evpn-rt-asn  
+&nbsp;&nbsp;&nbsp;&nbsp;neighbor 10.0.**N.N**  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inherit peer VXLAN_PEER  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;remote-as 6501**N**  
+&nbsp;&nbsp;&nbsp;&nbsp;neighbor 10.0.**N.N**  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inherit peer VXLAN_PEER  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;remote-as 6501**N**  
+&nbsp;&nbsp;&nbsp;&nbsp;neighbor 10.0.**N.N**  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inherit peer VXLAN_PEER  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;remote-as 6501**N**  
 
 **rewrite-evpn-rt-asn** - команда, для автоматической подмены номера AS в L2 маршрутах.
 
