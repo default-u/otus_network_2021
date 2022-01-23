@@ -92,7 +92,7 @@ template peer VXLAN_PEER
 **rewrite-evpn-rt-asn** - команда, для автоматической подмены номера AS в L2 маршрутах.
 
 <details>  
-<summary>hostname spine1  </summary>
+<summary>spine1  </summary>
 <pre><code>
 vdc spine1 id 1  
   limit-resource vlan minimum 16 maximum 4094  
@@ -188,7 +188,7 @@ router bgp 65001
 </details>  
  
 <details>  
-<summary>hostname spine2  </summary>
+<summary>spine2  </summary>
 <pre><code>
 vdc spine2 id 1  
   limit-resource vlan minimum 16 maximum 4094  
@@ -288,7 +288,7 @@ router bgp 65002
 
  
 <details>  
-<summary>hostname spine3  </summary>
+<summary>spine3  </summary>
 <pre><code>
 vdc spine3 id 1  
   limit-resource vlan minimum 16 maximum 4094  
@@ -370,7 +370,7 @@ router bgp 65003
   
   
 <details>  
-<summary>hostname leaf1  </summary>
+<summary>leaf1  </summary>
 <pre><code>
 vdc leaf1 id 1  
   limit-resource vlan minimum 16 maximum 4094  
@@ -565,7 +565,7 @@ router bgp 65011
   
 
 <details>  
-<summary>hostname leaf2  </summary>
+<summary>leaf2  </summary>
 <pre><code>
 vdc leaf2 id 1  
   limit-resource vlan minimum 16 maximum 4094  
@@ -762,7 +762,7 @@ router bgp 65011
   
  
 <details>  
-<summary>hostname leaf3  </summary>
+<summary>leaf3  </summary>
 <pre><code>
 vdc leaf3 id 1  
   limit-resource vlan minimum 16 maximum 4094  
@@ -904,7 +904,7 @@ router bgp 65012
 </details>  
   
 <details>  
-<summary>hostname leaf4  </summary>
+<summary>leaf4  </summary>
 <pre><code>
 vdc leaf4 id 1  
   limit-resource vlan minimum 16 maximum 4094  
