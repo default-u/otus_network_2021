@@ -28,6 +28,7 @@ L2 пиринг строится между всеми leaf коммутатор
 **Реализация** **плана**
 
 На всех leaf коммутаторах добавляем конфигурацию:
+
 nv overlay evpn  
 feature bgp  
 feature interface-vlan  
