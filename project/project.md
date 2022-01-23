@@ -36,7 +36,7 @@ feature nv overlay
 
 vlan 20,101  
 vlan 20  
-&nbsp;&nbspvn-segment 10020  
+&nbsp;&nbsp;&nbsp;&nbsp;vn-segment 10020  
 vlan 101  
   vn-segment 1111  
 
