@@ -28,66 +28,67 @@ L2 пиринг строится между всеми leaf коммутатор
 **Реализация** **плана**
 
 На всех leaf коммутаторах добавляем конфигурацию:
-nv overlay evpn
-feature bgp
-feature interface-vlan
-feature vn-segment-vlan-based
-feature nv overlay
+nv overlay evpn  
+feature bgp  
+feature interface-vlan  
+feature vn-segment-vlan-based  
+feature nv overlay  
 
-vlan 20,101
-vlan 20
-  vn-segment 10020
-vlan 101
-  vn-segment 1111
+vlan 20,101  
+vlan 20  
+  vn-segment 10020  
+vlan 101  
+  vn-segment 1111  
 
-vrf context VXLAN
-  vni 1111
-  address-family ipv4 unicast
-    route-target import 1111:1111
-    route-target import 1111:1111 evpn
-    route-target export 1111:1111
-    route-target export 1111:1111 evpn
-    route-target both auto
-    route-target both auto evpn
+vrf context VXLAN  
+  vni 1111  
+  address-family ipv4 unicast  
+    route-target import 1111:1111  
+    route-target import 1111:1111 evpn  
+    route-target export 1111:1111  
+    route-target export 1111:1111 evpn  
+    route-target both auto  
+    route-target both auto evpn  
+  
+interface Vlan20  
+  no shutdown  
+  vrf member VXLAN  
+  ip address 192.168.1.**N**/24  
+  fabric forwarding mode anycast-gateway  
+  
+interface Vlan101  
+  no shutdown  
+  vrf member VXLAN  
+  ip forward  
+  
+interface nve1  
+  no shutdown  
+  host-reachability protocol bgp  
+  source-interface loopback0  
+  member vni 1111 associate-vrf  
+  member vni 10020  
+    ingress-replication protocol bgp  
+  
+router bgp 6501N  
+  address-family ipv4 unicast  
+    network 10.0.**N.N**/32  
+template peer VXLAN_PEER  
+    update-source loopback0  
+    ebgp-multihop 5  
+    address-family l2vpn evpn  
+      send-community  
+      send-community extended  
+      rewrite-evpn-rt-asn  
+ neighbor 10.0.**N.N**  
+    inherit peer VXLAN_PEER  
+    remote-as 6501**N**  
+  neighbor 10.0.**N.N**  
+    inherit peer VXLAN_PEER  
+    remote-as 6501**N**  
+  neighbor 10.0.**N.N**  
+    inherit peer VXLAN_PEER  
+    remote-as 6501**N**  
 
-interface Vlan20
-  no shutdown
-  vrf member VXLAN
-  ip address 192.168.1.**N**/24
-  fabric forwarding mode anycast-gateway
-
-interface Vlan101
-  no shutdown
-  vrf member VXLAN
-  ip forward
-
-interface nve1
-  no shutdown
-  host-reachability protocol bgp
-  source-interface loopback0
-  member vni 1111 associate-vrf
-  member vni 10020
-    ingress-replication protocol bgp
-
-router bgp 6501N
-  address-family ipv4 unicast
-    network 10.0.**N.N**/32
-template peer VXLAN_PEER
-    update-source loopback0
-    ebgp-multihop 5
-    address-family l2vpn evpn
-      send-community
-      send-community extended
-      rewrite-evpn-rt-asn
- neighbor 10.0.**N.N**
-    inherit peer VXLAN_PEER
-    remote-as 6501**N**
-  neighbor 10.0.**N.N**
-    inherit peer VXLAN_PEER
-    remote-as 6501**N**
-  neighbor 10.0.**N.N**
-    inherit peer VXLAN_PEER
-    remote-as 6501**N**
 
 **rewrite-evpn-rt-asn** - команда, для автоматической подмены номера AS в L2 маршрутах.
 
