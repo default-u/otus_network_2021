@@ -72,7 +72,7 @@ interface nve1
 router bgp 6501N  
 &nbsp;&nbsp;&nbsp;&nbsp;address-family ipv4 unicast  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;network 10.0.**N.N**/32  
-template peer VXLAN_PEER  
+&nbsp;&nbsp;&nbsp;&nbsp;template peer VXLAN_PEER  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;update-source loopback0  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ebgp-multihop 5  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;address-family l2vpn evpn  
