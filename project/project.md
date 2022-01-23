@@ -38,17 +38,17 @@ vlan 20,101
 vlan 20  
 &nbsp;&nbsp;&nbsp;&nbsp;vn-segment 10020  
 vlan 101  
-  vn-segment 1111  
+&nbsp;&nbsp;&nbsp;&nbsp;vn-segment 1111  
 
 vrf context VXLAN  
-  vni 1111  
-  address-family ipv4 unicast  
-    route-target import 1111:1111  
-    route-target import 1111:1111 evpn  
-    route-target export 1111:1111  
-    route-target export 1111:1111 evpn  
-    route-target both auto  
-    route-target both auto evpn  
+&nbsp;&nbsp;&nbsp;&nbsp;vni 1111  
+&nbsp;&nbsp;&nbsp;&nbsp;address-family ipv4 unicast  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;route-target import 1111:1111  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;route-target import 1111:1111 evpn  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;route-target export 1111:1111  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;route-target export 1111:1111 evpn  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;route-target both auto  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;route-target both auto evpn  
 
 interface Vlan20  
   no shutdown  
