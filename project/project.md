@@ -1050,7 +1050,7 @@ router bgp 65013
 ![image](https://user-images.githubusercontent.com/8961955/150806498-77721e50-8fa2-44b4-81dd-0c04c67dfa7f.png)
 
 
-`Тут будут листинги "sh nve peers" и "sh bgp l2vpn evpn"`  
+Выполним проверку, что пиринг поднялся и leaf коммутаторы обменялись маршрутной информацией:  
   
 
 **leaf4:**  
