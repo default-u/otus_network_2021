@@ -1054,10 +1054,8 @@ router bgp 65013
   
 <details>  
 <summary>leaf4  </summary>
-<pre>
 ![image](https://user-images.githubusercontent.com/8961955/150807220-d7cccbf0-5990-44fa-a82d-45dc9358c535.png)  
 ![image](https://user-images.githubusercontent.com/8961955/150807319-e0095c6e-d130-44b1-ab76-8391d2dc96e9.png)  
-</pre>
 </details>  
 
 
