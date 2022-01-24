@@ -1050,7 +1050,11 @@ router bgp 65013
 ![image](https://user-images.githubusercontent.com/8961955/150806498-77721e50-8fa2-44b4-81dd-0c04c67dfa7f.png)
 
 
-`Тут будут листинги "sh nve peers" и "sh bgp l2vpn evpn"`
+`Тут будут листинги "sh nve peers" и "sh bgp l2vpn evpn"`  
+  
+![image](https://user-images.githubusercontent.com/8961955/150807220-d7cccbf0-5990-44fa-a82d-45dc9358c535.png)  
+![image](https://user-images.githubusercontent.com/8961955/150807319-e0095c6e-d130-44b1-ab76-8391d2dc96e9.png)  
+
 
 `Тут будут листинги проверки L2 связности`
 
