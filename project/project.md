@@ -1053,11 +1053,19 @@ router bgp 65013
 `Тут будут листинги "sh nve peers" и "sh bgp l2vpn evpn"`  
   
 
-leaf4:  
+**leaf4:**  
 ![image](https://user-images.githubusercontent.com/8961955/150807220-d7cccbf0-5990-44fa-a82d-45dc9358c535.png)  
 ![image](https://user-images.githubusercontent.com/8961955/150807319-e0095c6e-d130-44b1-ab76-8391d2dc96e9.png)  
-
-
+  
+**leaf1:**  
+![image](https://user-images.githubusercontent.com/8961955/150808537-9a2ac831-c01e-4c4c-8bd7-217abcca8362.png)
+![image](https://user-images.githubusercontent.com/8961955/150808603-482e6b97-d261-43c6-9d06-614d6c4725e3.png)
+  
+**leaf3:**  
+![image](https://user-images.githubusercontent.com/8961955/150809334-a4acb926-12d7-45aa-8e13-cd41b7774c92.png)
+![image](https://user-images.githubusercontent.com/8961955/150809597-49baa15f-7dbc-4c03-a493-2faf768dee72.png)
+  
+  
 
 `Тут будут листинги проверки L2 связности`
 
