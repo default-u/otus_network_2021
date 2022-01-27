@@ -1087,3 +1087,34 @@ router bgp 65013
 
 
 В ходе реализации возникли сложности - выбор реализации L3 связности между сетями 192.168.1.0/24 и 172.16.N.N/N, на данный момент возможным решением представляется - multisite и вынесение ip адреса шлюза 192.168.1.1 на BGW каждого из сайтов либо vrf route leakinh. Кроме того, на данный момент не найдено правильного решения для настройки evpn на VPC паре leaf1 и leaf2.     
+
+**update:**  
+Вопрос связи между 192.168.1.0/24 на площадках решен упрощением конфигурации - исключен vrf VXLAN.  
+Конфигурация leaf коммутаторов в AS65012 и AS65013 приведена к виду:  
+
+<details>  
+<pre><code>
+interface Vlan20  
+  no shutdown  
+  ip address 192.168.1.N/24  
+  fabric forwarding mode anycast-gateway  
+evpn  
+  vni 1111 l2  
+    route-target import auto  
+    route-target import 1111:1111  
+    route-target export auto  
+    route-target export 1111:1111  
+</code></pre>
+</details>  
+  
+В результате этих изменений повявилась связность между 192.168.1.0/24 и 172.16.N.N/N в AS65012 и AS65013:  
+**Пинги с VPC в AS65013:**  
+![image](https://user-images.githubusercontent.com/8961955/151406564-0766262b-ad17-42e0-8ddc-10d4d0c070c1.png)
+  
+**Пинги с vxlan_client2 в AS65012:**  
+![image](https://user-images.githubusercontent.com/8961955/151407144-37f426ef-d644-4584-bf7a-294a811931f2.png)
+
+
+
+
+
